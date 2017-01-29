@@ -13,6 +13,15 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+*.meta
+
+#Files doesnt used
+/Export
+/Builds
+/Library
+/obj
+/Temp
+/.vs
 
 # Windows shortcuts
 *.lnk
