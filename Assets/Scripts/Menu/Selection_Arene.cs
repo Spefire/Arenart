@@ -12,7 +12,7 @@ public class Selection_Arene : MonoBehaviour {
 	private Renderer render;
 	private AudioSource aud;
 
-	// Use this for initialization
+
 	void Start () {
 		aud = GetComponent<AudioSource>();
 		pos = 3;
@@ -20,7 +20,7 @@ public class Selection_Arene : MonoBehaviour {
 		render = GetComponent<Renderer>();
 	}
 
-	// Update is called once per frame
+
 	void Update () {
 		if (Input.GetAxis("J1_Deplacement") == 1){
 			if ((select_arene < 3) && (Camera_Menu.pos == pos)) {
@@ -36,7 +36,7 @@ public class Selection_Arene : MonoBehaviour {
 		}
 	}
 
-	//Autres fonctions
+
 	void Affichage (){
 		aud.PlayOneShot (son_selection);
 		switch (select_arene) {

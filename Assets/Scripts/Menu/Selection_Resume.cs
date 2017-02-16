@@ -12,15 +12,13 @@ public class Selection_Resume : MonoBehaviour {
 	public Texture texture_select_4;
 	public Texture texture_select_5;
 	private Renderer render;
-	//private AudioSource aud;
 
-	// Use this for initialization
+
 	void Start () {
-		//aud = GetComponent<AudioSource>();
 		render = GetComponent<Renderer>();
 	}
 
-	// Update is called once per frame
+
 	void Update () {
 		if (selection == 1) {
 			select = Selection_P1.select_perso;
@@ -34,7 +32,7 @@ public class Selection_Resume : MonoBehaviour {
 		}
 	}
 
-	//Autres fonctions
+
 	void Affichage (){
 		switch (select) {
 		case 1:
