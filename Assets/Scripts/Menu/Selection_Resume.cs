@@ -23,10 +23,10 @@ public class Selection_Resume : MonoBehaviour {
 		if (selection == 1) {
 			select = Selection_P1.select_perso;
             Affichage ();
-		}else if(selection == 2) {
+		} else if(selection == 2) {
 			select = Selection_P2.select_perso;
             Affichage ();
-		}else if(selection == 3) {
+		} else if(selection == 3) {
 			select = Selection_Arene.select_arene;
             Affichage ();
 		}

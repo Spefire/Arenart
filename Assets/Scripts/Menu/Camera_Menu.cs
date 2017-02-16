@@ -6,8 +6,6 @@ public class Camera_Menu: MonoBehaviour {
 
 	private float posx;
 	private float posy;
-	private float Sposx;
-	private float Sposy;
 	private float tex;
 	private float tey;
 	private float coef;
@@ -31,8 +29,6 @@ public class Camera_Menu: MonoBehaviour {
 		aud = GetComponent<AudioSource>();
 		posx = transform.position.x;
 		posy = transform.position.y;
-		Sposx = transform.position.x;
-		Sposy = transform.position.y;
 		pos = 0;
 		choice = 0;
 		isFrench = true;
@@ -142,16 +138,16 @@ public class Camera_Menu: MonoBehaviour {
 		}
 
 		//Selection_P1
-		if (pos == 1) {
-			if (Input.GetKeyUp (KeyCode.Z)) {
+		else if (pos == 1) {
+			if (Input.GetKeyUp (KeyCode.Escape)) {
 				print ("Retour_Menu");
-				transform.position = new Vector3 (Sposx, Sposy, 0);
+				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 0;
 				aud.PlayOneShot (son_validation);
 			}
-			if(Input.GetKeyUp (KeyCode.Return) || Input.GetButtonDown ("J1_Saut")){
+			if(Input.GetKeyUp (KeyCode.Return)){
 				print ("Selection_P2");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -171,7 +167,7 @@ public class Camera_Menu: MonoBehaviour {
 				pos = 1;
 				aud.PlayOneShot (son_validation);
 			}
-			if (Input.GetKeyUp (KeyCode.Return) || Input.GetButtonDown ("J2_Saut")) {
+			if (Input.GetKeyUp (KeyCode.Return)) {
 				print ("Selection_Arene");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -191,7 +187,7 @@ public class Camera_Menu: MonoBehaviour {
 				pos = 2;
 				aud.PlayOneShot (son_validation);
 			}
-			if (Input.GetKeyUp (KeyCode.Return) || Input.GetButtonDown ("J1_Saut")) {
+			if (Input.GetKeyUp (KeyCode.Return)) {
 				print ("Select_Resume");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -201,7 +197,7 @@ public class Camera_Menu: MonoBehaviour {
 			}
 		}
 
-		//Select_Resume
+		//Selection_Resume
 		else if (pos == 4) {
 			if (Input.GetKeyUp (KeyCode.Escape)) {
 				print ("Retour_Select_Arene");
@@ -211,10 +207,8 @@ public class Camera_Menu: MonoBehaviour {
 				pos = 3;
 				aud.PlayOneShot (son_validation);
 			}
-			if (Input.GetKeyUp (KeyCode.Return) || Input.GetButtonDown ("J1_Saut")) {
-				print ("Lancement_Partie");
+			if (Input.GetKeyUp (KeyCode.Return)) {
 				aud.PlayOneShot (son_validation);
-				//Lancer la Partie
 				var gameObjects = GameObject.FindGameObjectsWithTag("LevelManager");
 				foreach (var gameObj in gameObjects) {
 					DontDestroyOnLoad(gameObj);
