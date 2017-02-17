@@ -1,0 +1,42 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Choice_J1 : MonoBehaviour {
+
+	private int pos;
+	public static int choice;
+	public Texture texture_choice_0;
+	public Texture texture_choice_1;
+	public Texture texture_choice_2;
+	private Renderer render;
+
+
+	void Start () {
+		pos = 1;
+		choice = 0;
+		render = GetComponent<Renderer>();
+	}
+
+
+	void Update () {
+		if (Camera_Menu.pos == pos) {
+			if (choice == 0 && (Input.GetKey (KeyCode.S) || Input.GetKeyUp (KeyCode.Return))) {
+				choice = 2;
+				render.material.mainTexture = texture_choice_2;
+			}
+			else if ((choice == 1 || choice == 2) && Input.GetKeyUp (KeyCode.Z)) {
+				choice = 0;
+				render.material.mainTexture = texture_choice_0;
+			}
+			else if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+				choice = 2;
+				render.material.mainTexture = texture_choice_2;
+			}
+			else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+				choice = 1;
+				render.material.mainTexture = texture_choice_1;
+			}
+		}
+	}
+}

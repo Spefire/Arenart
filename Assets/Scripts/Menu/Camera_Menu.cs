@@ -10,27 +10,18 @@ public class Camera_Menu: MonoBehaviour {
 	private float tey;
 	private float coef;
 	public static int pos;
-	public static int choice;
 	public static bool isFrench;
 	public static bool hasMusic;
-	public Texture texture_choice_0;
-	public Texture texture_choice_1;
-	public Texture texture_choice_2;
-	public Texture texture_choice_3;
-	public Texture texture_choice_4;
-	public Texture texture_choice_5;
 	public AudioClip son_validation;
-	private Renderer render;
 	private AudioSource aud;
 
 
 	void Start () {
-		render = GetComponent<Renderer>();
+
 		aud = GetComponent<AudioSource>();
 		posx = transform.position.x;
 		posy = transform.position.y;
 		pos = 0;
-		choice = 0;
 		isFrench = true;
 		hasMusic = true;
 		float TARGET_WIDTH = 1366.0f;
@@ -53,48 +44,8 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Menu Principal
 		if (pos == 0) {
-			if (choice < 5 && Input.GetKeyUp (KeyCode.Z)) {
-				choice++;
-				switch (choice) {
-				case 1: //Aides
-					render.material.mainTexture = texture_choice_1;
-					break;
-				case 2: //Credits
-					render.material.mainTexture = texture_choice_2;
-					break;
-				case 3: //Musique
-					render.material.mainTexture = texture_choice_3;
-					break;
-				case 4: //Langage
-					render.material.mainTexture = texture_choice_4;
-					break;
-				case 5: //Quitter
-					render.material.mainTexture = texture_choice_5;
-					break;
-				}
-			}
-			if (choice > 0 && Input.GetKeyUp (KeyCode.S)) {
-				choice--;
-				switch (choice) {
-				case 0: //Jouer
-					render.material.mainTexture = texture_choice_0;
-					break;
-				case 1: //Aides
-					render.material.mainTexture = texture_choice_1;
-					break;
-				case 2: //Credits
-					render.material.mainTexture = texture_choice_2;
-					break;
-				case 3: //Musique
-					render.material.mainTexture = texture_choice_3;
-					break;
-				case 4: //Langage
-					render.material.mainTexture = texture_choice_4;
-					break;
-				}
-			}
 			if (Input.GetKeyUp (KeyCode.Return)) {
-				switch (choice) {
+				switch (Choice_Menu.choice) {
 				case 0: //Jouer
 					print ("Jouer");
 					transform.position = new Vector3 (posx + 35, posy, 0);
@@ -133,21 +84,19 @@ public class Camera_Menu: MonoBehaviour {
 					Application.Quit();
 					break;
 				}
-				choice = 0;
 			}
 		}
 
 		//Selection_P1
 		else if (pos == 1) {
-			if (Input.GetKeyUp (KeyCode.Escape)) {
+			if ((Input.GetKeyUp (KeyCode.Return) && Choice_J1.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
 				print ("Retour_Menu");
 				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 0;
 				aud.PlayOneShot (son_validation);
-			}
-			if(Input.GetKeyUp (KeyCode.Return)){
+			} else if (Input.GetKeyUp (KeyCode.Return) && Choice_J1.choice == 2) {
 				print ("Selection_P2");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -159,15 +108,14 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Selection_P2
 		else if (pos == 2) {
-			if (Input.GetKeyUp (KeyCode.Escape)) {
+			if ((Input.GetKeyUp (KeyCode.Return) && Choice_J2.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
 				print ("Retour_Selection_P1");
 				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 1;
 				aud.PlayOneShot (son_validation);
-			}
-			if (Input.GetKeyUp (KeyCode.Return)) {
+			} else if(Input.GetKeyUp (KeyCode.Return) && Choice_J2.choice == 2) {
 				print ("Selection_Arene");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;

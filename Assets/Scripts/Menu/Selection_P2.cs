@@ -16,24 +16,26 @@ public class Selection_P2 : MonoBehaviour {
 
 
 	void Start () {
-		aud = GetComponent<AudioSource>();
 		pos = 2;
 		select_perso = 1;
 		render = GetComponent<Renderer>();
+		aud = GetComponent<AudioSource>();
 	}
 
 
 	void Update () {
-		if (Input.GetAxis("J2_Deplacement") == 1){
-			if ((select_perso < 5) && (Camera_Menu.pos == pos)) {
-				select_perso = select_perso + 1;
-				Affichage ();
+		if (Camera_Menu.pos == pos) {
+			if (Choice_J2.choice == 0 && Input.GetKeyUp (KeyCode.D)){
+				if (select_perso < 5) {
+					select_perso = select_perso + 1;
+					Affichage ();
+				}
 			}
-		}
-		else if (Input.GetAxis("J2_Deplacement") == -1){
-			if ((select_perso > 1) && (Camera_Menu.pos == pos)) {
-				select_perso = select_perso - 1;
-				Affichage ();
+			else if (Choice_J2.choice == 0 && Input.GetKeyUp (KeyCode.Q)){
+				if (select_perso > 1) {
+					select_perso = select_perso - 1;
+					Affichage ();
+				}
 			}
 		}
 	}
@@ -60,3 +62,4 @@ public class Selection_P2 : MonoBehaviour {
 		}
 	}
 }
+
