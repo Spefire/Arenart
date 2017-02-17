@@ -115,7 +115,7 @@ public class Camera_Menu: MonoBehaviour {
 				posy = transform.position.y;
 				pos = 1;
 				aud.PlayOneShot (son_validation);
-			} else if(Input.GetKeyUp (KeyCode.Return) && Choice_J2.choice == 2) {
+			} else if (Input.GetKeyUp (KeyCode.Return) && Choice_J2.choice == 2) {
 				print ("Selection_Arene");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -127,15 +127,14 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Selection_Arene
 		else if (pos == 3) {
-			if (Input.GetKeyUp (KeyCode.Escape)) {
+			if ((Input.GetKeyUp (KeyCode.Return) && Choice_Arene.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
 				print ("Retour_Selection_P2");
 				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 2;
 				aud.PlayOneShot (son_validation);
-			}
-			if (Input.GetKeyUp (KeyCode.Return)) {
+			} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Arene.choice == 2) {
 				print ("Select_Resume");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -147,15 +146,14 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Selection_Resume
 		else if (pos == 4) {
-			if (Input.GetKeyUp (KeyCode.Escape)) {
+			if ((Input.GetKeyUp (KeyCode.Return) && Choice_Resume.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
 				print ("Retour_Select_Arene");
 				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 3;
 				aud.PlayOneShot (son_validation);
-			}
-			if (Input.GetKeyUp (KeyCode.Return)) {
+			} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Resume.choice == 2) {
 				aud.PlayOneShot (son_validation);
 				var gameObjects = GameObject.FindGameObjectsWithTag("LevelManager");
 				foreach (var gameObj in gameObjects) {
