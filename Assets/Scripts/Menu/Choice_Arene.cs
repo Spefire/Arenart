@@ -24,21 +24,21 @@ public class Choice_Arene : MonoBehaviour {
 
 	void Update () {
 		if (Camera_Menu.pos == pos) {
-			if (choice == 0 && (Input.GetKey (KeyCode.S) || Input.GetKeyUp (KeyCode.Return))) {
+			if (choice == 0 && (Game_Inputs.J1_Bas || Game_Inputs.J1_Attaque)) {
 				choice = 2;
 				render.material.mainTexture = texture_choice_2;
 			}
-			else if ((choice == 1 || choice == 2) && Input.GetKeyUp (KeyCode.Z)) {
+			else if ((choice == 1 || choice == 2) && Game_Inputs.J1_Haut) {
 				choice = 0;
 				render.material.mainTexture = texture_choice_0;
 				aud.PlayOneShot (son_selection);
 			}
-			else if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+			else if (choice == 1 && Game_Inputs.J1_Droit) {
 				choice = 2;
 				render.material.mainTexture = texture_choice_2;
 				aud.PlayOneShot (son_selection);
 			}
-			else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+			else if (choice == 2 && Game_Inputs.J1_Gauche) {
 				choice = 1;
 				render.material.mainTexture = texture_choice_1;
 				aud.PlayOneShot (son_selection);

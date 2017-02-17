@@ -43,7 +43,7 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Menu Principal
 		if (pos == 0) {
-			if (Input.GetKeyUp (KeyCode.Return)) {
+			if (Game_Inputs.J1_Attaque) {
 				switch (Choice_Menu.choice) {
 				case 0: //Jouer
 					print ("Jouer");
@@ -88,14 +88,14 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Selection_P1
 		else if (pos == 1) {
-			if ((Input.GetKeyUp (KeyCode.Return) && Choice_J1.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+			if ((Game_Inputs.J1_Attaque && Choice_J1.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 				print ("Retour_Menu");
 				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 0;
 				aud.PlayOneShot (son_validation);
-			} else if (Input.GetKeyUp (KeyCode.Return) && Choice_J1.choice == 2) {
+			} else if (Game_Inputs.J1_Attaque && Choice_J1.choice == 2) {
 				print ("Selection_P2");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -107,14 +107,14 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Selection_P2
 		else if (pos == 2) {
-			if ((Input.GetKeyUp (KeyCode.Return) && Choice_J2.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+			if ((Game_Inputs.J2_Attaque && Choice_J2.choice == 1) || Game_Inputs.J2_PouvoirSpe) {
 				print ("Retour_Selection_P1");
 				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 1;
 				aud.PlayOneShot (son_validation);
-			} else if (Input.GetKeyUp (KeyCode.Return) && Choice_J2.choice == 2) {
+			} else if (Game_Inputs.J2_Attaque && Choice_J2.choice == 2) {
 				print ("Selection_Arene");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -126,14 +126,14 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Selection_Arene
 		else if (pos == 3) {
-			if ((Input.GetKeyUp (KeyCode.Return) && Choice_Arene.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+			if ((Game_Inputs.J1_Attaque && Choice_Arene.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 				print ("Retour_Selection_P2");
 				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 2;
 				aud.PlayOneShot (son_validation);
-			} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Arene.choice == 2) {
+			} else if (Game_Inputs.J1_Attaque && Choice_Arene.choice == 2) {
 				print ("Select_Resume");
 				transform.position = new Vector3 (posx + 35, posy, 0);
 				posx = transform.position.x;
@@ -145,14 +145,14 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Selection_Resume
 		else if (pos == 4) {
-			if ((Input.GetKeyUp (KeyCode.Return) && Choice_Resume.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+			if ((Game_Inputs.J1_Attaque && Choice_Resume.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 				print ("Retour_Select_Arene");
 				transform.position = new Vector3 (posx - 35, posy, 0);
 				posx = transform.position.x;
 				posy = transform.position.y;
 				pos = 3;
 				aud.PlayOneShot (son_validation);
-			} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Resume.choice == 2) {
+			} else if (Game_Inputs.J1_Attaque && Choice_Resume.choice == 2) {
 				aud.PlayOneShot (son_validation);
 				var gameObjects = GameObject.FindGameObjectsWithTag("LevelManager");
 				foreach (var gameObj in gameObjects) {
@@ -172,69 +172,69 @@ public class Camera_Menu: MonoBehaviour {
 		else if (pos == 5) {
 			switch (help_pos) {
 			case 0: //Indicateurs
-				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+				if ((Game_Inputs.J1_Attaque && Choice_Aides.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 					print ("Retour_Menu");
 					transform.position = new Vector3 (posx, posy + 15, 0);
 					posx = transform.position.x;
 					posy = transform.position.y;
 					pos = 0;
 					aud.PlayOneShot (son_validation);
-				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+				} else if (Game_Inputs.J1_Attaque && Choice_Aides.choice == 2) {
 					print ("Aide_01");
 					help_pos = 1;
 					aud.PlayOneShot (son_validation);
 				}
 				break;
 			case 1: //Spefire
-				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+				if ((Game_Inputs.J1_Attaque && Choice_Aides.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 					print ("Retour_Aide_00");
 					help_pos = 0;
 					aud.PlayOneShot (son_validation);
-				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+				} else if (Game_Inputs.J1_Attaque && Choice_Aides.choice == 2) {
 					print ("Aide_02");
 					help_pos = 2;
 					aud.PlayOneShot (son_validation);
 				}
 				break;
 			case 2: //Apkareru
-				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+				if ((Game_Inputs.J1_Attaque && Choice_Aides.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 					print ("Retour_Aide_01");
 					help_pos = 1;
 					aud.PlayOneShot (son_validation);
-				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+				} else if (Game_Inputs.J1_Attaque && Choice_Aides.choice == 2) {
 					print ("Aide_03");
 					help_pos = 3;
 					aud.PlayOneShot (son_validation);
 				}
 				break;
 			case 3: //Ilana
-				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+				if ((Game_Inputs.J1_Attaque && Choice_Aides.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 					print ("Retour_Aide_02");
 					help_pos = 2;
 					aud.PlayOneShot (son_validation);
-				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+				} else if (Game_Inputs.J1_Attaque && Choice_Aides.choice == 2) {
 					print ("Aide_04");
 					help_pos = 4;
 					aud.PlayOneShot (son_validation);
 				}
 				break;
 			case 4: //KrizaLied
-				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+				if ((Game_Inputs.J1_Attaque && Choice_Aides.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 					print ("Retour_Aide_03");
 					help_pos = 3;
 					aud.PlayOneShot (son_validation);
-				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+				} else if (Game_Inputs.J1_Attaque && Choice_Aides.choice == 2) {
 					print ("Aide_05");
 					help_pos = 5;
 					aud.PlayOneShot (son_validation);
 				}
 				break;
 			case 5: //Dunky
-				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+				if ((Game_Inputs.J1_Attaque && Choice_Aides.choice == 1) || Game_Inputs.J1_PouvoirSpe) {
 					print ("Retour_Aide_04");
 					help_pos = 4;
 					aud.PlayOneShot (son_validation);
-				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+				} else if (Game_Inputs.J1_Attaque && Choice_Aides.choice == 2) {
 					print ("Retour_Aide_00");
 					help_pos = 0;
 					aud.PlayOneShot (son_validation);
@@ -245,7 +245,7 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Crédits
 		else if (pos == 6) {
-			if (Input.GetKeyUp (KeyCode.Escape) || Input.GetKeyUp (KeyCode.Return)) {
+			if (Game_Inputs.J1_Attaque || Game_Inputs.J1_PouvoirSpe) {
 				print ("Retour_Menu");
 				transform.position = new Vector3 (posx, posy + 30, 0);
 				posx = transform.position.x;

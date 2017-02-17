@@ -28,10 +28,10 @@ public class Choice_Aides : MonoBehaviour {
 		if (Camera_Menu.pos == pos) {
 			switch (Camera_Menu.help_pos) {
 			case 0:
-				if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+				if (choice == 1 && Game_Inputs.J1_Droit) {
 					choice = 2;
 					aud.PlayOneShot (son_selection);
-				} else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+				} else if (choice == 2 && Game_Inputs.J1_Gauche) {
 					choice = 1;
 					aud.PlayOneShot (son_selection);
 				}
@@ -42,10 +42,10 @@ public class Choice_Aides : MonoBehaviour {
 				}
 				break;
 			case 1:
-				if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+				if (choice == 1 && Game_Inputs.J1_Droit) {
 					choice = 2;
 					aud.PlayOneShot (son_selection);
-				} else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+				} else if (choice == 2 && Game_Inputs.J1_Gauche) {
 					choice = 1;
 					aud.PlayOneShot (son_selection);
 				}
@@ -56,10 +56,10 @@ public class Choice_Aides : MonoBehaviour {
 				}
 				break;
 			case 2:
-				if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+				if (choice == 1 && Game_Inputs.J1_Droit) {
 					choice = 2;
 					aud.PlayOneShot (son_selection);
-				} else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+				} else if (choice == 2 && Game_Inputs.J1_Gauche) {
 					choice = 1;
 					aud.PlayOneShot (son_selection);
 				}
@@ -70,10 +70,10 @@ public class Choice_Aides : MonoBehaviour {
 				}
 				break;
 			case 3:
-				if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+				if (choice == 1 && Game_Inputs.J1_Droit) {
 					choice = 2;
 					aud.PlayOneShot (son_selection);
-				} else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+				} else if (choice == 2 && Game_Inputs.J1_Gauche) {
 					choice = 1;
 					aud.PlayOneShot (son_selection);
 				}
@@ -84,10 +84,10 @@ public class Choice_Aides : MonoBehaviour {
 				}
 				break;
 			case 4:
-				if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+				if (choice == 1 && Game_Inputs.J1_Droit) {
 					choice = 2;
 					aud.PlayOneShot (son_selection);
-				} else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+				} else if (choice == 2 && Game_Inputs.J1_Gauche) {
 					choice = 1;
 					aud.PlayOneShot (son_selection);
 				}
@@ -98,10 +98,10 @@ public class Choice_Aides : MonoBehaviour {
 				}
 				break;
 			case 5:
-				if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+				if (choice == 1 && Game_Inputs.J1_Droit) {
 					choice = 2;
 					aud.PlayOneShot (son_selection);
-				} else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+				} else if (choice == 2 && Game_Inputs.J1_Gauche) {
 					choice = 1;
 					aud.PlayOneShot (son_selection);
 				}

@@ -23,12 +23,12 @@ public class Choice_Resume : MonoBehaviour {
 
 	void Update () {
 		if (Camera_Menu.pos == pos) {
-			if (choice == 1 && Input.GetKeyUp (KeyCode.D)) {
+			if (choice == 1 && Game_Inputs.J1_Droit) {
 				choice = 2;
 				render.material.mainTexture = texture_choice_2;
 				aud.PlayOneShot (son_selection);
 			}
-			else if (choice == 2 && Input.GetKeyUp (KeyCode.Q)) {
+			else if (choice == 2 && Game_Inputs.J1_Gauche) {
 				choice = 1;
 				render.material.mainTexture = texture_choice_1;
 				aud.PlayOneShot (son_selection);

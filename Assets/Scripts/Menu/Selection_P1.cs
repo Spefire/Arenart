@@ -25,13 +25,13 @@ public class Selection_P1 : MonoBehaviour {
 
 	void Update () {
 		if (Camera_Menu.pos == pos) {
-			if (Choice_J1.choice == 0 && Input.GetKeyUp (KeyCode.D)){
+			if (Choice_J1.choice == 0 && Game_Inputs.J1_Droit){
 				if (select_perso < 5) {
 					select_perso = select_perso + 1;
 					Affichage ();
 				}
 			}
-			else if (Choice_J1.choice == 0 && Input.GetKeyUp (KeyCode.Q)){
+			else if (Choice_J1.choice == 0 && Game_Inputs.J1_Gauche){
 				if (select_perso > 1) {
 					select_perso = select_perso - 1;
 					Affichage ();

@@ -27,7 +27,7 @@ public class Choice_Menu : MonoBehaviour {
 
 	void Update () {
 		if (Camera_Menu.pos == pos) {
-			if (choice < 5 && Input.GetKeyUp (KeyCode.S)) {
+			if (choice < 5 && Game_Inputs.J1_Bas) {
 				choice++;
 				aud.PlayOneShot (son_selection);
 				switch (choice) {
@@ -48,7 +48,7 @@ public class Choice_Menu : MonoBehaviour {
 					break;
 				}
 			}
-			if (choice > 0 && Input.GetKeyUp (KeyCode.Z)) {
+			if (choice > 0 && Game_Inputs.J1_Haut) {
 				choice--;
 				aud.PlayOneShot (son_selection);
 				switch (choice) {

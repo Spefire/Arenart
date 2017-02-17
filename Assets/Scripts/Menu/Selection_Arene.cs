@@ -14,22 +14,22 @@ public class Selection_Arene : MonoBehaviour {
 
 
 	void Start () {
-		aud = GetComponent<AudioSource>();
 		pos = 3;
 		select_arene = 1;
+		aud = GetComponent<AudioSource>();
 		render = GetComponent<Renderer>();
 	}
 
 
 	void Update () {
 		if (Camera_Menu.pos == pos) {
-			if (Choice_Arene.choice == 0 && Input.GetKeyUp (KeyCode.D)){
+			if (Choice_Arene.choice == 0 && Game_Inputs.J1_Droit){
 				if (select_arene < 5) {
 					select_arene = select_arene + 1;
 					Affichage ();
 				}
 			}
-			else if (Choice_Arene.choice == 0 && Input.GetKeyUp (KeyCode.Q)){
+			else if (Choice_Arene.choice == 0 && Game_Inputs.J1_Gauche){
 				if (select_arene > 1) {
 					select_arene = select_arene - 1;
 					Affichage ();
