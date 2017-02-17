@@ -245,7 +245,7 @@ public class Camera_Menu: MonoBehaviour {
 
 		//Crédits
 		else if (pos == 6) {
-			if (Input.GetKeyUp (KeyCode.Escape)) {
+			if (Input.GetKeyUp (KeyCode.Escape) || Input.GetKeyUp (KeyCode.Return)) {
 				print ("Retour_Menu");
 				transform.position = new Vector3 (posx, posy + 30, 0);
 				posx = transform.position.x;
