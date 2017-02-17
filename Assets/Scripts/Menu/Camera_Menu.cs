@@ -10,18 +10,18 @@ public class Camera_Menu: MonoBehaviour {
 	private float tey;
 	private float coef;
 	public static int pos;
+	public static int help_pos;
 	public static bool isFrench;
 	public static bool hasMusic;
 	public AudioClip son_validation;
-	public AudioClip son_menu;
 	private AudioSource aud;
 
 	void Start () {
-
 		aud = GetComponent<AudioSource>();
 		posx = transform.position.x;
 		posy = transform.position.y;
 		pos = 0;
+		help_pos = 0;
 		isFrench = true;
 		hasMusic = true;
 		float TARGET_WIDTH = 1366.0f;
@@ -40,13 +40,6 @@ public class Camera_Menu: MonoBehaviour {
 	void Update () {
 		tex = (float)Screen.width/1366;
 		tey = (float)Screen.height/768;
-
-		//Musique
-		if (!aud.isPlaying && aud.loop && hasMusic) {
-			aud.PlayOneShot(son_menu);
-		} else if (!hasMusic) {
-			aud.Stop ();
-		}
 
 		//Menu Principal
 		if (pos == 0) {
@@ -175,15 +168,78 @@ public class Camera_Menu: MonoBehaviour {
 			}
 		}
 
-		//Aides TODO
+		//Aides
 		else if (pos == 5) {
-			if (Input.GetKeyUp (KeyCode.Escape)) {
-				print ("Retour_Menu");
-				transform.position = new Vector3 (posx, posy + 15, 0);
-				posx = transform.position.x;
-				posy = transform.position.y;
-				pos = 0;
-				aud.PlayOneShot (son_validation);
+			switch (help_pos) {
+			case 0: //Indicateurs
+				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+					print ("Retour_Menu");
+					transform.position = new Vector3 (posx, posy + 15, 0);
+					posx = transform.position.x;
+					posy = transform.position.y;
+					pos = 0;
+					aud.PlayOneShot (son_validation);
+				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+					print ("Aide_01");
+					help_pos = 1;
+					aud.PlayOneShot (son_validation);
+				}
+				break;
+			case 1: //Spefire
+				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+					print ("Retour_Aide_00");
+					help_pos = 0;
+					aud.PlayOneShot (son_validation);
+				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+					print ("Aide_02");
+					help_pos = 2;
+					aud.PlayOneShot (son_validation);
+				}
+				break;
+			case 2: //Apkareru
+				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+					print ("Retour_Aide_01");
+					help_pos = 1;
+					aud.PlayOneShot (son_validation);
+				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+					print ("Aide_03");
+					help_pos = 3;
+					aud.PlayOneShot (son_validation);
+				}
+				break;
+			case 3: //Ilana
+				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+					print ("Retour_Aide_02");
+					help_pos = 2;
+					aud.PlayOneShot (son_validation);
+				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+					print ("Aide_04");
+					help_pos = 4;
+					aud.PlayOneShot (son_validation);
+				}
+				break;
+			case 4: //KrizaLied
+				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+					print ("Retour_Aide_03");
+					help_pos = 3;
+					aud.PlayOneShot (son_validation);
+				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+					print ("Aide_05");
+					help_pos = 5;
+					aud.PlayOneShot (son_validation);
+				}
+				break;
+			case 5: //Dunky
+				if ((Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 1) || Input.GetKeyUp (KeyCode.Escape)) {
+					print ("Retour_Aide_04");
+					help_pos = 4;
+					aud.PlayOneShot (son_validation);
+				} else if (Input.GetKeyUp (KeyCode.Return) && Choice_Aides.choice == 2) {
+					print ("Retour_Aide_00");
+					help_pos = 0;
+					aud.PlayOneShot (son_validation);
+				}
+				break;
 			}
 		}
 
