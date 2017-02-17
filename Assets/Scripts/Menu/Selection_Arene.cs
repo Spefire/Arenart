@@ -22,16 +22,18 @@ public class Selection_Arene : MonoBehaviour {
 
 
 	void Update () {
-		if (Input.GetAxis("J1_Deplacement") == 1){
-			if ((select_arene < 3) && (Camera_Menu.pos == pos)) {
-				select_arene = select_arene + 1;
-				Affichage ();
+		if (Camera_Menu.pos == pos) {
+			if (Choice_Arene.choice == 0 && Input.GetKeyUp (KeyCode.D)){
+				if (select_arene < 5) {
+					select_arene = select_arene + 1;
+					Affichage ();
+				}
 			}
-		}
-		if (Input.GetAxis("J1_Deplacement") == -1){
-			if ((select_arene > 1) && (Camera_Menu.pos == pos)) {
-				select_arene = select_arene - 1;
-				Affichage ();
+			else if (Choice_Arene.choice == 0 && Input.GetKeyUp (KeyCode.Q)){
+				if (select_arene > 1) {
+					select_arene = select_arene - 1;
+					Affichage ();
+				}
 			}
 		}
 	}
