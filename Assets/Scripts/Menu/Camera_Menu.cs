@@ -13,8 +13,8 @@ public class Camera_Menu: MonoBehaviour {
 	public static bool isFrench;
 	public static bool hasMusic;
 	public AudioClip son_validation;
+	public AudioClip son_menu;
 	private AudioSource aud;
-
 
 	void Start () {
 
@@ -37,10 +37,16 @@ public class Camera_Menu: MonoBehaviour {
 		}
 	}
 
-
 	void Update () {
 		tex = (float)Screen.width/1366;
 		tey = (float)Screen.height/768;
+
+		//Musique
+		if (!aud.isPlaying && aud.loop && hasMusic) {
+			aud.PlayOneShot(son_menu);
+		} else if (!hasMusic) {
+			aud.Stop ();
+		}
 
 		//Menu Principal
 		if (pos == 0) {
