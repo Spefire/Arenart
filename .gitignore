@@ -18,13 +18,8 @@ $RECYCLE.BIN/
 *.csproj
 *.userprefs
 
-*.png
 *.zip
-*.jpg
-*.jpeg
 *.xcf
-*.wav
-*.mp3
 *.sai
 
 #Files doesnt used
