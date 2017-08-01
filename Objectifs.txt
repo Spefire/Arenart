@@ -1,0 +1,11 @@
+- Installer le menu d'Aides
++ Faire changer les images du menu de départ
++ Structure des scenes
++ Changer le splash
++ Créer un menu Pause
+- Créer un menu Fin de game
+~ Recréer une structure pour le gameplay des personnages
+- Ajouter le systeme de score sur TOUTES les scènes (et de les taguer)
+- Refaire la structure des plateformes et des tags !
+- Ajouter une barre de skill SUPER POWAA
+- Ajouter 3 persos
