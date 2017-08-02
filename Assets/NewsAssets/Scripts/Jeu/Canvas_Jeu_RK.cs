@@ -16,6 +16,7 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 	public AudioClip son_jeu;
 	public GameObject panelPause;
 	public GameObject panelFin;
+	public AudioSource audCamera;
 
 	public Text textVieJ1;
 	public Text textVieJ2;
@@ -27,14 +28,12 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 
 	private Perso_Stats_RK J1;
 	private Perso_Stats_RK J2;
-	private AudioSource aud;
 
 	void OnEnable () {
 		hasMusic = true;
 		isPaused = false;
 		Time.timeScale = 1.0f;
 		Cursor.visible = false;
-		aud = GetComponent<AudioSource>();
 		panelPause.SetActive (false);
 		panelFin.SetActive (false);
 	}
@@ -64,8 +63,8 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 			Click_Button_Reprendre ();
 		}
 
-		if (!aud.isPlaying && aud.loop && !isPaused && hasMusic) {
-			aud.PlayOneShot (son_jeu);
+		if (!audCamera.isPlaying && audCamera.loop && !isPaused && hasMusic) {
+			audCamera.PlayOneShot (son_jeu);
 		}
 		if (EventSystem.current != null) {
 			if (EventSystem.current.currentSelectedGameObject == null) {
@@ -97,7 +96,7 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 		panelPause.SetActive (true);
 		Time.timeScale = 0f;
 		if (hasMusic) {
-			aud.Pause ();
+			audCamera.Pause ();
 		}
 	}
 
@@ -107,7 +106,7 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 		panelFin.SetActive (true);
 		Time.timeScale = 0f;
 		if (hasMusic) {
-			aud.Pause ();
+			audCamera.Pause ();
 		}
 	}
 
@@ -118,7 +117,7 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 		panelFin.SetActive (false);
 		Time.timeScale = 1.0f;
 		if (hasMusic) {
-			aud.UnPause ();
+			audCamera.UnPause ();
 		}
 	}
 
@@ -138,7 +137,7 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 		panelPause.SetActive (false);
 		Time.timeScale = 1.0f;
 		if (hasMusic) {
-			aud.UnPause ();
+			audCamera.UnPause ();
 		}
 		var gameObjects = GameObject.FindGameObjectsWithTag("LevelManager");
 		foreach (var gameObj in gameObjects) {
@@ -153,7 +152,7 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 		panelFin.SetActive (false);
 		Time.timeScale = 1.0f;
 		if (hasMusic) {
-			aud.UnPause ();
+			audCamera.UnPause ();
 		}
 		var gameObjects = GameObject.FindGameObjectsWithTag("LevelManager");
 		foreach (var gameObj in gameObjects) {

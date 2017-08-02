@@ -30,7 +30,9 @@ public class Perso_Pouv03_RK: MonoBehaviour {
 	}
 
 	void Update () {
-		Pouvoirs();
+		if (!Canvas_Jeu_RK.isPaused && !Canvas_Jeu_RK.isFinished) {
+			Pouvoirs();
+		}
 	}
 		
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

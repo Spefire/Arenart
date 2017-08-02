@@ -30,7 +30,9 @@ public class Perso_Pouv01_RK: MonoBehaviour {
 	}
 
 	void Update () {
-		Pouvoirs();
+		if (!Canvas_Jeu_RK.isPaused && !Canvas_Jeu_RK.isFinished) {
+			Pouvoirs();
+		}
 		if (stats.vie < 50) {
 			body.transformed = true;
 			if (render.sprite == body.texture_base_primaire) {
@@ -72,7 +74,7 @@ public class Perso_Pouv01_RK: MonoBehaviour {
 
 	//Coup de poing
 	private void Action_Attaque(){
-		float distance = (transform.position - stats.enemy.transform.position).magnitude;
+		float distance = (transform.position - stats.enemyPos).magnitude;
 		if (distance < 2) {
 			Perso_Stats_RK statsEnemy = stats.enemy.GetComponent<Perso_Stats_RK> ();
 			statsEnemy.SetDamage (statsEnemy.GetDamage (1.25), 5);
