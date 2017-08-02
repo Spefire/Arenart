@@ -19,11 +19,11 @@ $RECYCLE.BIN/
 *.userprefs
 
 # Uncomment for special merge
-*.jpg
-*.jpeg
-*.png
-*.xcf
-*.sai
+#*.jpg
+#*.jpeg
+#*.png
+#*.xcf
+#*.sai
 
 #Files doesnt used
 /Export
