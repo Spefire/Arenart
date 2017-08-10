@@ -18,6 +18,7 @@ public class Canvas_Menu_RK : MonoBehaviour {
 	public Sprite son_on;
 	public Image son_music;
 	public AudioClip son_menu;
+	public AudioSource audCamera;
 	public AudioClip son_validation;
 	private AudioSource aud;
 
@@ -27,7 +28,7 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		hasMusic = true;
 		Cursor.visible = false;
 		aud = GetComponent<AudioSource>();
-		aud.PlayOneShot(son_menu);
+		audCamera.PlayOneShot(son_menu);
 	}
 
 	public void Click_Button_Jouer() {
@@ -75,11 +76,11 @@ public class Canvas_Menu_RK : MonoBehaviour {
 	public void Click_Button_Musique() {
 		print ("Musique");
 		hasMusic = !hasMusic;
-		if (!aud.isPlaying && aud.loop && hasMusic) {
-			aud.PlayOneShot(son_menu);
+		if (!audCamera.isPlaying && audCamera.loop && hasMusic) {
+			audCamera.PlayOneShot(son_menu);
 			son_music.sprite = son_on;
 		} else if (!hasMusic) {
-			aud.Stop ();
+			audCamera.Stop ();
 			son_music.sprite = son_off;
 		}
 	}
@@ -141,6 +142,9 @@ public class Canvas_Menu_RK : MonoBehaviour {
 	void Update () {
 		if (Game_Inputs.J1_PouvoirSpe || Game_Inputs.J2_PouvoirSpe) {
 			Choose_Return();
+		}
+		if (!audCamera.isPlaying && audCamera.loop && hasMusic) {
+			audCamera.PlayOneShot (son_menu);
 		}
 		if (EventSystem.current.currentSelectedGameObject == null) {
 			EventSystem.current.SetSelectedGameObject (EventSystem.current.firstSelectedGameObject);
