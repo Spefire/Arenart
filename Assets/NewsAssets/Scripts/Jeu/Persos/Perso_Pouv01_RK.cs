@@ -8,7 +8,6 @@ public class Perso_Pouv01_RK: MonoBehaviour {
 	public bool first;
 	public GameObject BouleFeu;
 	public GameObject Flammes;
-	public GameObject Meteore;
 	public Sprite texture_attaque;
 	public Sprite texture_pouvoir;
 	public Sprite texture_spe;
@@ -96,17 +95,11 @@ public class Perso_Pouv01_RK: MonoBehaviour {
 		instantiatedProjectile.GetComponent<Objet_Lance> ().SetConfig (first, body.turned, 1f);
 	}
 
-	//Embrasement ou Echec Critique
+	//Embrasement
 	private void Action_Spe(){
-		if (!body.transformed) {
-			Vector3 objPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
-			GameObject instantiatedProjectile = (GameObject)Instantiate (Flammes, objPos, Flammes.transform.rotation);
-			instantiatedProjectile.GetComponent<Objet_Suivi> ().SetConfig (first, body.turned, true);
-		} else {
-			Vector3 objPos = new Vector3 (stats.enemyPos.x, stats.enemyPos.y+15, stats.enemyPos.z);
-			GameObject instantiatedProjectile = (GameObject)Instantiate (Meteore, objPos, Meteore.transform.rotation);
-			instantiatedProjectile.GetComponent<Objet_Lance> ().SetConfig (first, body.turned, 1f);
-		}
+		Vector3 objPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+		GameObject instantiatedProjectile = (GameObject)Instantiate (Flammes, objPos, Flammes.transform.rotation);
+		instantiatedProjectile.GetComponent<Objet_Suivi> ().SetConfig (first, body.turned, true);
 	}
 }
 
