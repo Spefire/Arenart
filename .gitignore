@@ -13,7 +13,7 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
-*.meta
+#*.meta
 *.sln
 *.csproj
 *.userprefs
