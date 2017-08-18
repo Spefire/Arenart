@@ -14,6 +14,7 @@ public class Canvas_Menu_RK : MonoBehaviour {
 	public GameObject panelSelectPerso2;
 	public GameObject panelSelectArene;
 	public GameObject panelSelectResume;
+	public GameObject panelCredits;
 	public Sprite son_off;
 	public Sprite son_on;
 	public Image son_music;
@@ -30,6 +31,9 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		aud = GetComponent<AudioSource>();
 		audCamera.PlayOneShot(son_menu);
 	}
+
+	//------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------
 
 	public void Click_Button_Jouer() {
 		position = 1;
@@ -63,6 +67,40 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		panelSelectResume.SetActive (true);
 	}
 
+	public void Click_Button_Launch() {
+		print ("Lancement de la partie...");
+		var gameObjects = GameObject.FindGameObjectsWithTag("LevelManager");
+		foreach (var gameObj in gameObjects) {
+			DontDestroyOnLoad(gameObj);
+		}
+		if (Selection_Arene_RK.select_arene == 1) {
+			SceneManager.LoadScene ("Scene_Jeu_01");
+		} else if (Selection_Arene_RK.select_arene == 2) {
+			SceneManager.LoadScene ("Scene_Jeu_02");
+		} else if (Selection_Arene_RK.select_arene == 3) {
+			SceneManager.LoadScene ("Scene_Jeu_03");
+		}
+	}
+
+	//------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------
+
+	public void Click_Button_Credits() {
+		position = 20;
+		print ("Crédits");
+		aud.PlayOneShot (son_validation);
+		panelMenuPrincipal.SetActive (false);
+		panelCredits.SetActive (true);
+	}
+
+	public void Click_Button_Retour_Credits() {
+		position = 0;
+		print ("Menu Principal");
+		aud.PlayOneShot (son_validation);
+		panelCredits.SetActive (false);
+		panelMenuPrincipal.SetActive (true);
+	}
+
 	public void Click_Button_Aides() {
 		print ("Aides");
 		aud.PlayOneShot (son_validation);
@@ -91,20 +129,8 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		Application.Quit();
 	}
 
-	public void Click_Button_Launch() {
-		print ("Lancement de la partie...");
-		var gameObjects = GameObject.FindGameObjectsWithTag("LevelManager");
-		foreach (var gameObj in gameObjects) {
-			DontDestroyOnLoad(gameObj);
-		}
-		if (Selection_Arene_RK.select_arene == 1) {
-			SceneManager.LoadScene ("Scene_Jeu_01");
-		} else if (Selection_Arene_RK.select_arene == 2) {
-			SceneManager.LoadScene ("Scene_Jeu_02");
-		} else if (Selection_Arene_RK.select_arene == 3) {
-			SceneManager.LoadScene ("Scene_Jeu_03");
-		}
-	}
+	//------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------
 
 	public void Choose_Return() {
 		switch (position) {
@@ -135,6 +161,13 @@ public class Canvas_Menu_RK : MonoBehaviour {
 			aud.PlayOneShot (son_validation);
 			panelSelectResume.SetActive (false);
 			panelSelectArene.SetActive (true);
+			break;
+		case 20:
+			position = 0;
+			print ("Menu Principal");
+			aud.PlayOneShot (son_validation);
+			panelCredits.SetActive (false);
+			panelMenuPrincipal.SetActive (true);
 			break;
 		}
 	}
