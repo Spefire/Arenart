@@ -85,10 +85,8 @@ public class Perso_Stats_RK: MonoBehaviour {
 
 	void OnCollisionEnter (Collision objetInfo){
 		if (objetInfo.gameObject.tag == "Mort") {
-			vie = 0;
-			if (points > 0) {
-				GivePoints(-1);
-			}
+			vie -= 25;
+			resistance -= 50;
 		}
 	}
 }
