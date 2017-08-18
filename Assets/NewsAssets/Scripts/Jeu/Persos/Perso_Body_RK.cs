@@ -126,10 +126,18 @@ public class Perso_Body_RK : MonoBehaviour {
 				recharge_Phy = true;
 			}
 			if(time_cours_Text >= tmp_text_Phy){
-				if (!transformed) {
-					render.sprite = texture_base_primaire;
+				if (jumped) {
+					if (!transformed) {
+						render.sprite = texture_saut_primaire;
+					} else {
+						render.sprite = texture_saut_secondaire;
+					}
 				} else {
-					render.sprite = texture_base_secondaire;
+					if (!transformed) {
+						render.sprite = texture_base_primaire;
+					} else {
+						render.sprite = texture_base_secondaire;
+					}
 				}
 			}
 		}
@@ -139,10 +147,18 @@ public class Perso_Body_RK : MonoBehaviour {
 				recharge_Mag = true;
 			}
 			if(time_cours_Text >= tmp_text_Mag){
-				if (!transformed) {
-					render.sprite = texture_base_primaire;
+				if (jumped) {
+					if (!transformed) {
+						render.sprite = texture_saut_primaire;
+					} else {
+						render.sprite = texture_saut_secondaire;
+					}
 				} else {
-					render.sprite = texture_base_secondaire;
+					if (!transformed) {
+						render.sprite = texture_base_primaire;
+					} else {
+						render.sprite = texture_base_secondaire;
+					}
 				}
 			}
 		}
@@ -152,10 +168,18 @@ public class Perso_Body_RK : MonoBehaviour {
 				recharge_Spe = true;
 			}
 			if(time_cours_Text >= tmp_text_Spe){
-				if (!transformed) {
-					render.sprite = texture_base_primaire;
+				if (jumped) {
+					if (!transformed) {
+						render.sprite = texture_saut_primaire;
+					} else {
+						render.sprite = texture_saut_secondaire;
+					}
 				} else {
-					render.sprite = texture_base_secondaire;
+					if (!transformed) {
+						render.sprite = texture_base_primaire;
+					} else {
+						render.sprite = texture_base_secondaire;
+					}
 				}
 			}
 		}
