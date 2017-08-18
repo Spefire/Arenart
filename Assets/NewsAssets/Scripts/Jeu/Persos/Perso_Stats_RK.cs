@@ -45,11 +45,17 @@ public class Perso_Stats_RK: MonoBehaviour {
 		enemyPos = enemy.transform.position;
 	}
 
+	private void Respawn() {
+		transform.position = spawn.transform.position;
+		GetComponent<Rigidbody> ().velocity = Vector3.zero;
+		GetComponent<Rigidbody> ().angularVelocity = Vector3.zero; 
+	}
+
 	private void TestVie () {
 		if (vie <= 0) {
-			transform.position = spawn.transform.position;
 			vie = 100;
 			resistance = 100;
+			Respawn ();
 		}
 	}
 
@@ -87,6 +93,7 @@ public class Perso_Stats_RK: MonoBehaviour {
 		if (objetInfo.gameObject.tag == "Mort") {
 			vie -= 25;
 			resistance -= 50;
+			Respawn ();
 		}
 	}
 }
