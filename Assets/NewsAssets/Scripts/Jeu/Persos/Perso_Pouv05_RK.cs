@@ -68,11 +68,11 @@ public class Perso_Pouv05_RK: MonoBehaviour {
 			Perso_Stats_RK statsEnemy = stats.enemy.GetComponent<Perso_Stats_RK> ();
 			statsEnemy.SetDamage (statsEnemy.GetDamage (1), 5);
 			if (stats.enemyPos.x > transform.position.x) {
-				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.up * 35, ForceMode.Impulse);
-				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.right * 30, ForceMode.Impulse);
+				stats.enemyRigid.AddForce (Vector3.up * 35, ForceMode.Impulse);
+				stats.enemyRigid.AddForce (Vector3.right * 30, ForceMode.Impulse);
 			} else {
-				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.up * 35, ForceMode.Impulse);
-				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.left * 30, ForceMode.Impulse);
+				stats.enemyRigid.AddForce (Vector3.up * 35, ForceMode.Impulse);
+				stats.enemyRigid.AddForce (Vector3.left * 30, ForceMode.Impulse);
 			}
 			aud.PlayOneShot (aud00_punch);
 		} else {
@@ -115,11 +115,11 @@ public class Perso_Pouv05_RK: MonoBehaviour {
 			Perso_Stats_RK statsEnemy = stats.enemy.GetComponent<Perso_Stats_RK> ();
 			statsEnemy.SetDamage (statsEnemy.GetDamage (1.25), 5);
 			if (stats.enemyPos.x > transform.position.x) {
-				stats.enemy.GetComponent<Rigidbody> ().velocity = Vector3.up * 20;
-				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.right * 30, ForceMode.Impulse);
+				stats.enemyRigid.AddForce (Vector3.up * 120, ForceMode.Impulse);
+				stats.enemyRigid.AddForce (Vector3.right * 30, ForceMode.Impulse);
 			} else {
-				stats.enemy.GetComponent<Rigidbody> ().velocity = Vector3.up * 20;
-				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.left * 30, ForceMode.Impulse);
+				stats.enemyRigid.AddForce (Vector3.up * 120, ForceMode.Impulse);
+				stats.enemyRigid.AddForce (Vector3.left * 30, ForceMode.Impulse);
 			}
 		}
 	}

@@ -11,6 +11,7 @@ public class Perso_Stats_RK: MonoBehaviour {
 	[HideInInspector]public int points;
 	[HideInInspector]public GameObject enemy;
 	[HideInInspector]public Vector3 enemyPos;
+	[HideInInspector]public Rigidbody enemyRigid;
 
 	private GameObject spawn;
 
@@ -31,6 +32,7 @@ public class Perso_Stats_RK: MonoBehaviour {
 		if (enemy != null) {
 			Physics.IgnoreCollision (enemy.GetComponent<Collider> (), transform.root.GetComponent<Collider> ());
 			enemyPos = enemy.transform.position;
+			enemyRigid = enemy.GetComponent<Rigidbody> ();
 		}
 	}
 
