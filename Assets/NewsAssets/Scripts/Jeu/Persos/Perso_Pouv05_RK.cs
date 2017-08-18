@@ -67,7 +67,13 @@ public class Perso_Pouv05_RK: MonoBehaviour {
 		if (distance < 2) {
 			Perso_Stats_RK statsEnemy = stats.enemy.GetComponent<Perso_Stats_RK> ();
 			statsEnemy.SetDamage (statsEnemy.GetDamage (1), 5);
-			stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.up * 25, ForceMode.Impulse);
+			if (stats.enemyPos.x > transform.position.x) {
+				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.up * 35, ForceMode.Impulse);
+				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.right * 30, ForceMode.Impulse);
+			} else {
+				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.up * 35, ForceMode.Impulse);
+				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.left * 30, ForceMode.Impulse);
+			}
 			aud.PlayOneShot (aud00_punch);
 		} else {
 			aud.PlayOneShot (aud00_coup);
