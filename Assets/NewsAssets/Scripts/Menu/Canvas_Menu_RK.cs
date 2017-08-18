@@ -14,6 +14,8 @@ public class Canvas_Menu_RK : MonoBehaviour {
 	public GameObject panelSelectPerso2;
 	public GameObject panelSelectArene;
 	public GameObject panelSelectResume;
+	public GameObject panelAidesPresentation;
+	public GameObject panelAidesTouches;
 	public GameObject panelCredits;
 	public Sprite son_off;
 	public Sprite son_on;
@@ -85,6 +87,41 @@ public class Canvas_Menu_RK : MonoBehaviour {
 	//------------------------------------------------------------------------------------------------------
 	//------------------------------------------------------------------------------------------------------
 
+	public void Click_Button_Aides() {
+		position = 10;
+		print ("Aides : Presentation");
+		aud.PlayOneShot (son_validation);
+		panelMenuPrincipal.SetActive (false);
+		panelAidesPresentation.SetActive (true);
+	}
+
+	public void Click_Button_Retour_Aides() {
+		position = 0;
+		print ("Menu Principal");
+		aud.PlayOneShot (son_validation);
+		panelAidesPresentation.SetActive (false);
+		panelMenuPrincipal.SetActive (true);
+	}
+
+	public void Click_Button_Touches() {
+		position = 11;
+		print ("Aides : Touches");
+		aud.PlayOneShot (son_validation);
+		panelAidesPresentation.SetActive (false);
+		panelAidesTouches.SetActive (true);
+	}
+
+	public void Click_Button_Retour_Touches() {
+		position = 10;
+		print ("Aides : Presentation");
+		aud.PlayOneShot (son_validation);
+		panelAidesTouches.SetActive (false);
+		panelAidesPresentation.SetActive (true);
+	}
+
+	//------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------
+
 	public void Click_Button_Credits() {
 		position = 20;
 		print ("Crédits");
@@ -99,11 +136,6 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		aud.PlayOneShot (son_validation);
 		panelCredits.SetActive (false);
 		panelMenuPrincipal.SetActive (true);
-	}
-
-	public void Click_Button_Aides() {
-		print ("Aides");
-		aud.PlayOneShot (son_validation);
 	}
 
 	public void Click_Button_Langage() {
