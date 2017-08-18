@@ -82,9 +82,13 @@ public class Perso_Pouv05_RK: MonoBehaviour {
 
 	//Fracas
 	void Action_Pouvoir(){
+		if (body.turned) {
+			body.turned = false;
+			render.flipX = false;
+		}
 		body.SetFracased ();
 		transform.Translate(new Vector3(0, 3f, 0));
-		GetComponent<Rigidbody>().AddForce (-Vector3.up * 150, ForceMode.Impulse);
+		GetComponent<Rigidbody>().AddForce (-Vector3.up * 175, ForceMode.Impulse);
 	}
 
 	//Finnix
@@ -96,26 +100,27 @@ public class Perso_Pouv05_RK: MonoBehaviour {
 		}
 		Vector3 objPos = new Vector3 (transform.position.x + offX, transform.position.y, transform.position.z);
 		GameObject instantiatedProjectile = (GameObject)Instantiate (LanceFinn, objPos, LanceFinn.transform.rotation);
-		instantiatedProjectile.GetComponent<Objet_Lance> ().SetConfig (first, body.turned, 1f);
+		instantiatedProjectile.GetComponent<Objet_Finn> ().SetConfig (first, body.turned, 1f);
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public void UseFracased() {
-		body.SetStunned(1f);
 		Vector3 objPos = new Vector3 (transform.position.x, transform.position.y - 0.5f, transform.position.z);
 		GameObject instantiatedProjectile = (GameObject)Instantiate (Fracas, objPos, Fracas.transform.rotation);
 		instantiatedProjectile.GetComponent<Objet_Suivi> ().SetConfig (first, body.turned, false);
 		aud.PlayOneShot (aud05_fracas);
+
 		float distance = (transform.position - stats.enemyPos).magnitude;
-		if (distance < 2) {
+		if (distance < 4) {
 			Perso_Stats_RK statsEnemy = stats.enemy.GetComponent<Perso_Stats_RK> ();
 			statsEnemy.SetDamage (statsEnemy.GetDamage (1.25), 5);
-			stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.up * 25, ForceMode.Impulse);
-			if (transform.position.x - stats.enemyPos.x > 0) {
-				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.left * 25, ForceMode.Impulse);
+			if (stats.enemyPos.x > transform.position.x) {
+				stats.enemy.GetComponent<Rigidbody> ().velocity = Vector3.up * 20;
+				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.right * 30, ForceMode.Impulse);
 			} else {
-				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.right * 25, ForceMode.Impulse);
+				stats.enemy.GetComponent<Rigidbody> ().velocity = Vector3.up * 20;
+				stats.enemy.GetComponent<Rigidbody> ().AddForce (Vector3.left * 30, ForceMode.Impulse);
 			}
 		}
 	}
