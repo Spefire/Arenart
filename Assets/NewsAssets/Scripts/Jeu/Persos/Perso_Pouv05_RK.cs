@@ -93,7 +93,6 @@ public class Perso_Pouv05_RK: MonoBehaviour {
 
 	//Finnix
 	void Action_Spe(){
-		body.SetStunned(1f);
 		float offX = 1f;
 		if (body.turned) {
 			offX = -1f;
