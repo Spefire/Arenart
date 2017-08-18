@@ -16,6 +16,11 @@ public class Canvas_Menu_RK : MonoBehaviour {
 	public GameObject panelSelectResume;
 	public GameObject panelAidesPresentation;
 	public GameObject panelAidesTouches;
+	public GameObject panelAidesPerso01;
+	public GameObject panelAidesPerso02;
+	public GameObject panelAidesPerso03;
+	public GameObject panelAidesPerso04;
+	public GameObject panelAidesPerso05;
 	public GameObject panelCredits;
 	public Sprite son_off;
 	public Sprite son_on;
