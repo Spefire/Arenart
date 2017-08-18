@@ -9,8 +9,8 @@ public class Perso_Body_RK : MonoBehaviour {
 	public Sprite texture_saut_primaire;
 	public Sprite texture_saut_secondaire;
 
-	[HideInInspector]public int speed_mov = 10;
-	[HideInInspector]public int speed_jump = 80;
+	[HideInInspector]public int speed_mov = 15;
+	[HideInInspector]public int speed_jump = 100;
 	[HideInInspector]public int nb_saut = 2;
 	[HideInInspector]public bool jumped;
 	[HideInInspector]public bool stunned;
