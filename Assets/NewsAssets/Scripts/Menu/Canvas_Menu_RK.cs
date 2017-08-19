@@ -100,11 +100,14 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		panelAidesPresentation.SetActive (true);
 	}
 
-	public void Click_Button_Retour_Aides() {
+	//------ Aides (10)
+
+	public void Click_Button_Retour_Menu() {
 		position = 0;
 		print ("Menu Principal");
 		aud.PlayOneShot (son_validation);
 		panelAidesPresentation.SetActive (false);
+		panelAidesPerso05.SetActive (false);
 		panelMenuPrincipal.SetActive (true);
 	}
 
@@ -116,12 +119,104 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		panelAidesTouches.SetActive (true);
 	}
 
-	public void Click_Button_Retour_Touches() {
+	//------ Touches (11)
+
+	public void Click_Button_Retour_Aides() {
 		position = 10;
-		print ("Aides : Presentation");
+		print ("Aides : Présentation");
 		aud.PlayOneShot (son_validation);
 		panelAidesTouches.SetActive (false);
 		panelAidesPresentation.SetActive (true);
+	}
+
+	public void Click_Button_Perso01() {
+		position = 12;
+		print ("Aides : Perso 01");
+		aud.PlayOneShot (son_validation);
+		panelAidesTouches.SetActive (false);
+		panelAidesPerso01.SetActive (true);
+	}
+
+	//------ Perso 01 (12)
+
+	public void Click_Button_Retour_Touches() {
+		position = 11;
+		print ("Aides : Touches");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso01.SetActive (false);
+		panelAidesTouches.SetActive (true);
+	}
+
+	public void Click_Button_Perso02() {
+		position = 13;
+		print ("Aides : Perso 02");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso01.SetActive (false);
+		panelAidesPerso02.SetActive (true);
+	}
+
+	//------ Perso 02 (13)
+
+	public void Click_Button_Retour_Perso01() {
+		position = 12;
+		print ("Aides : Perso 01");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso02.SetActive (false);
+		panelAidesPerso01.SetActive (true);
+	}
+
+	public void Click_Button_Perso03() {
+		position = 14;
+		print ("Aides : Perso 03");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso02.SetActive (false);
+		panelAidesPerso03.SetActive (true);
+	}
+
+	//------ Perso 03 (14)
+
+	public void Click_Button_Retour_Perso02() {
+		position = 13;
+		print ("Aides : Perso 02");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso03.SetActive (false);
+		panelAidesPerso02.SetActive (true);
+	}
+
+	public void Click_Button_Perso04() {
+		position = 15;
+		print ("Aides : Perso 04");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso03.SetActive (false);
+		panelAidesPerso04.SetActive (true);
+	}
+
+	//------ Perso 04 (15)
+
+	public void Click_Button_Retour_Perso03() {
+		position = 14;
+		print ("Aides : Perso 03");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso04.SetActive (false);
+		panelAidesPerso03.SetActive (true);
+	}
+
+	public void Click_Button_Perso05() {
+		position = 16;
+		print ("Aides : Perso 05");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso04.SetActive (false);
+		panelAidesPerso05.SetActive (true);
+	}
+
+	//------ Perso 05 (16)
+
+	public void Click_Button_Retour_Perso04() {
+		position = 15;
+		print ("Aides : Perso 04");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso05.SetActive (false);
+		panelAidesPerso04.SetActive (true);
 	}
 
 	//------------------------------------------------------------------------------------------------------
