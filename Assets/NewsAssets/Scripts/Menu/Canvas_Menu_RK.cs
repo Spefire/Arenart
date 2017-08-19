@@ -107,7 +107,6 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		print ("Menu Principal");
 		aud.PlayOneShot (son_validation);
 		panelAidesPresentation.SetActive (false);
-		panelAidesPerso05.SetActive (false);
 		panelMenuPrincipal.SetActive (true);
 	}
 
@@ -219,6 +218,14 @@ public class Canvas_Menu_RK : MonoBehaviour {
 		panelAidesPerso04.SetActive (true);
 	}
 
+	public void Click_Button_Retour_Final() {
+		position = 11;
+		print ("Aides : Touches");
+		aud.PlayOneShot (son_validation);
+		panelAidesPerso05.SetActive (false);
+		panelAidesTouches.SetActive (true);
+	}
+
 	//------------------------------------------------------------------------------------------------------
 	//------------------------------------------------------------------------------------------------------
 
@@ -293,6 +300,35 @@ public class Canvas_Menu_RK : MonoBehaviour {
 			aud.PlayOneShot (son_validation);
 			panelSelectResume.SetActive (false);
 			panelSelectArene.SetActive (true);
+			break;
+		case 10:
+			position = 0;
+			print ("Menu Principal");
+			aud.PlayOneShot (son_validation);
+			panelAidesPresentation.SetActive (false);
+			panelMenuPrincipal.SetActive (true);
+			break;
+		case 11:
+			position = 10;
+			print ("Aides : Présentation");
+			aud.PlayOneShot (son_validation);
+			panelAidesTouches.SetActive (false);
+			panelAidesPresentation.SetActive (true);
+			break;
+		case 12:
+		case 13:
+		case 14:
+		case 15:
+		case 16:
+			position = 11;
+			print ("Aides : Touches");
+			aud.PlayOneShot (son_validation);
+			panelAidesPerso01.SetActive (false);
+			panelAidesPerso02.SetActive (false);
+			panelAidesPerso03.SetActive (false);
+			panelAidesPerso04.SetActive (false);
+			panelAidesPerso05.SetActive (false);
+			panelAidesTouches.SetActive (true);
 			break;
 		case 20:
 			position = 0;
