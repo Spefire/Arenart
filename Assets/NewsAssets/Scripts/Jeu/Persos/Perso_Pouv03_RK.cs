@@ -92,7 +92,7 @@ public class Perso_Pouv03_RK: MonoBehaviour {
 		}
 		Vector3 objPos = new Vector3 (transform.position.x + offX, transform.position.y, transform.position.z);
 		GameObject instantiatedProjectile = (GameObject)Instantiate (Esprit, objPos, Esprit.transform.rotation);
-		instantiatedProjectile.GetComponent<Objet_Lance> ().SetConfig (first, body.turned, 1f);
+		instantiatedProjectile.GetComponent<Objet_Esprit> ().SetConfig (first, body.turned, 1f);
 	}
 }
 

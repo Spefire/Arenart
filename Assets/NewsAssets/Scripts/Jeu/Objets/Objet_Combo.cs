@@ -13,48 +13,43 @@ public class Objet_Combo : MonoBehaviour {
 	private double time_Spirit;
 	private double tmp_recharge_Spirit = 0.2;
 	private int state;
-	private bool useCombo;
 	private AudioSource aud;
 	private SpriteRenderer render;
 
 	void OnEnable () {
 		state = 1;
-		useCombo = false;
+		time_Spirit = (double)Time.time;
 		aud = GetComponent<AudioSource>();
 		render = GetComponent<SpriteRenderer>();
 		aud.PlayOneShot (aud03_punch);
 	}
 
 	void Update () {
-		if (useCombo) {
-			double time_cours_Spirit = (double)Time.time - time_Spirit;
-			if (time_cours_Spirit >= tmp_recharge_Spirit) {
-				switch (state) {
-				case 1:
-					render.sprite = texture_spirit_02;
-					aud.PlayOneShot (aud03_punchV2);
-					break;
-				case 2:
-					render.sprite = texture_spirit_03;
-					aud.PlayOneShot (aud03_punch);
-					break;
-				case 3:
-					render.sprite = texture_spirit_04;
-					aud.PlayOneShot (aud03_punchV2);
-					break;
-				case 4:
-					render.sprite = texture_spirit_05;
-					aud.PlayOneShot (aud03_punch);
-					break;
-				}
-				state++;
-				time_Spirit = (double)Time.time;
+		double time_cours_Spirit = (double)Time.time - time_Spirit;
+		if (time_cours_Spirit >= tmp_recharge_Spirit) {
+			state++;
+			switch (state) {
+			case 2:
+				render.sprite = texture_spirit_02;
+				aud.PlayOneShot (aud03_punchV2);
+				break;
+			case 3:
+				render.sprite = texture_spirit_03;
+				aud.PlayOneShot (aud03_punch);
+				break;
+			case 4:
+				render.sprite = texture_spirit_04;
+				aud.PlayOneShot (aud03_punchV2);
+				break;
+			case 5:
+				render.sprite = texture_spirit_05;
+				aud.PlayOneShot (aud03_punch);
+				break;
+			case 6:
+				DestroyObject (this.gameObject);
+				break;
 			}
+			time_Spirit = (double)Time.time;
 		}
-	}
-
-	public void UseCombo() {
-		useCombo = true;
-		time_Spirit = (double)Time.time;
 	}
 }
