@@ -41,30 +41,32 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	void Update () {
-		J1 = GameObject.FindGameObjectWithTag ("J1").GetComponent<Perso_Stats_RK>();
-		J2 = GameObject.FindGameObjectWithTag ("J2").GetComponent<Perso_Stats_RK>();
-		if (J1 != null && J2 != null) {
-			UpdateStatsJ1 (J1.vie, J1.resistance);
-			UpdateStatsJ2 (J2.vie, J2.resistance);
-			UpdateScore (J1.points, J2.points);
-			if (J1.points >= maxScore) {
-				Set_Win ();
-				Set_J1_Win ();
+		if (!isFinished) {
+			J1 = GameObject.FindGameObjectWithTag ("J1").GetComponent<Perso_Stats_RK> ();
+			J2 = GameObject.FindGameObjectWithTag ("J2").GetComponent<Perso_Stats_RK> ();
+			if (J1 != null && J2 != null) {
+				UpdateStatsJ1 (J1.vie, J1.resistance);
+				UpdateStatsJ2 (J2.vie, J2.resistance);
+				UpdateScore (J1.points, J2.points);
+				if (J1.points >= maxScore) {
+					Set_Win ();
+					Set_J1_Win ();
+				}
+				if (J2.points >= maxScore) {
+					Set_Win ();
+					Set_J2_Win ();
+				}
 			}
-			if (J2.points >= maxScore) {
-				Set_Win ();
-				Set_J2_Win ();
+
+			if (Input.GetKeyUp (KeyCode.Escape) && !isPaused) {
+				Set_Pause ();
+			} else if (Input.GetKeyUp (KeyCode.Escape) && isPaused) {
+				Click_Button_Reprendre ();
 			}
-		}
 
-		if (Input.GetKeyUp (KeyCode.Escape) && !isPaused) {
-			Set_Pause ();
-		} else if (Input.GetKeyUp (KeyCode.Escape) && isPaused) {
-			Click_Button_Reprendre ();
-		}
-
-		if (!audCamera.isPlaying && audCamera.loop && !isPaused && hasMusic) {
-			audCamera.PlayOneShot (son_jeu);
+			if (!audCamera.isPlaying && audCamera.loop && !isPaused && hasMusic) {
+				audCamera.PlayOneShot (son_jeu);
+			}
 		}
 		if (EventSystem.current != null) {
 			if (EventSystem.current.currentSelectedGameObject == null) {
