@@ -76,7 +76,11 @@ public class Perso_Pouv01_RK: MonoBehaviour {
 		float distance = (transform.position - stats.enemyPos).magnitude;
 		if (distance < 2) {
 			Perso_Stats_RK statsEnemy = stats.enemy.GetComponent<Perso_Stats_RK> ();
-			statsEnemy.SetDamage (statsEnemy.GetDamage (1.25), 5);
+			if (body.transformed) {
+				statsEnemy.SetDamage (statsEnemy.GetDamage (1.25), 5);
+			} else {
+				statsEnemy.SetDamage (statsEnemy.GetDamage (1.5), 5);
+			}
 			if (stats.enemyPos.x > transform.position.x) {
 				stats.enemyRigid.AddForce (Vector3.up * 35, ForceMode.Impulse);
 				stats.enemyRigid.AddForce (Vector3.right * 30, ForceMode.Impulse);
@@ -98,7 +102,11 @@ public class Perso_Pouv01_RK: MonoBehaviour {
 		}
 		Vector3 objPos = new Vector3 (transform.position.x + offX, transform.position.y, transform.position.z);
 		GameObject instantiatedProjectile = (GameObject)Instantiate (BouleFeu, objPos, BouleFeu.transform.rotation);
-		instantiatedProjectile.GetComponent<Objet_Lance> ().SetConfig (first, body.turned, 1f);
+		if (body.transformed) {
+			instantiatedProjectile.GetComponent<Objet_Lance> ().SetConfig (first, body.turned, 1.25f);
+		} else {
+			instantiatedProjectile.GetComponent<Objet_Lance> ().SetConfig (first, body.turned, 1f);
+		}
 	}
 
 	//Embrasement

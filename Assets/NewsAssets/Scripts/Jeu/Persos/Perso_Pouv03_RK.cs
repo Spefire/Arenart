@@ -81,7 +81,7 @@ public class Perso_Pouv03_RK: MonoBehaviour {
 		Vector3 posFire = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 		GameObject instantiatedProjectile = (GameObject)Instantiate (Bouclier, posFire, Bouclier.transform.rotation);
 		instantiatedProjectile.GetComponent<Objet_Suivi> ().SetConfig (first, body.turned, false);
-		stats.SetDamage (-2, 0);
+		stats.SetDamage (-5, 0);
 	}
 
 	//Esprit
