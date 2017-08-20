@@ -110,7 +110,7 @@ public class Perso_Body_RK : MonoBehaviour {
 				}
 			} else if (((first && Game_Inputs.J1_Haut) || (!first && Game_Inputs.J2_Haut)) && nb_saut == 2) {
 				if (!Canvas_Jeu_RK.isPaused) {
-					GetComponent<Rigidbody> ().AddForce (Vector3.up * speed_jump * 1.2f, ForceMode.Impulse);
+					GetComponent<Rigidbody> ().AddForce (Vector3.up * speed_jump * 1.25f, ForceMode.Impulse);
 					nb_saut--;
 					Sauter();
 				}
