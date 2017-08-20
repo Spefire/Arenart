@@ -40,7 +40,7 @@ public class Objet_Esprit: MonoBehaviour {
 
 	void OnTriggerEnter(Collider objetInfo) {
 		if (objetInfo.gameObject == enemy) {
-			GameObject instantiatedProjectile = (GameObject)Instantiate (combo, enemy.transform.position, combo.transform.rotation);
+			Instantiate (combo, enemy.transform.position, combo.transform.rotation);
 			Perso_Stats_RK stats = enemy.GetComponent<Perso_Stats_RK> ();
 			Perso_Body_RK body = enemy.GetComponent<Perso_Body_RK> ();
 			stats.SetDamage (stats.GetDamage (coeffDegats), resistance);
@@ -51,7 +51,7 @@ public class Objet_Esprit: MonoBehaviour {
 
 	void OnCollisionEnter(Collision objetInfo) {
 		if (objetInfo.gameObject == enemy) {
-			GameObject instantiatedProjectile = (GameObject)Instantiate (combo, enemy.transform.position, combo.transform.rotation);
+			Instantiate (combo, enemy.transform.position, combo.transform.rotation);
 			Perso_Stats_RK stats = enemy.GetComponent<Perso_Stats_RK> ();
 			Perso_Body_RK body = enemy.GetComponent<Perso_Body_RK> ();
 			stats.SetDamage (stats.GetDamage (coeffDegats), resistance);
