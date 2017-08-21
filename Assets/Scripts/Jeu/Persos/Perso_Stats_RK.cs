@@ -75,6 +75,15 @@ public class Perso_Stats_RK: MonoBehaviour {
 			vie = 100;
 		} else {
 			vie -= v;
+			if (first && v > 0) {
+				Indic_Vie_J1.Set_Vie_Moins ();
+			} else if (first && v < 0) {
+				Indic_Vie_J1.Set_Vie_Plus ();
+			} else if (!first && v > 0) {
+				Indic_Vie_J2.Set_Vie_Moins ();
+			} else if (!first && v < 0) {
+				Indic_Vie_J2.Set_Vie_Plus ();
+			}
 		}
 		if (resistance - r < 1) {
 			resistance = 0;
@@ -82,6 +91,15 @@ public class Perso_Stats_RK: MonoBehaviour {
 			resistance = 100;
 		} else {
 			resistance -= r;
+			if (first && r > 0) {
+				Indic_Resist_J1.Set_Resist_Moins ();
+			} else if (first && r < 0) {
+				Indic_Resist_J1.Set_Resist_Plus ();
+			} else if (!first && r > 0) {
+				Indic_Resist_J2.Set_Resist_Moins ();
+			} else if (!first && r < 0) {
+				Indic_Resist_J2.Set_Resist_Plus ();
+			}
 		}
 	}
 
@@ -94,6 +112,11 @@ public class Perso_Stats_RK: MonoBehaviour {
 	void OnCollisionEnter (Collision objetInfo){
 		if (objetInfo.gameObject.tag == "Mort") {
 			resistance = 0;
+			if (first) {
+				Indic_Resist_J1.Set_Resist_Moins ();
+			} else {
+				Indic_Resist_J2.Set_Resist_Moins ();
+			}
 			Respawn ();
 		}
 	}
