@@ -5,6 +5,7 @@ using UnityEngine;
 public class Game_Inputs : MonoBehaviour {
 
 	public static bool Valider;
+	public static bool Retour;
 
 	public static bool J1_Gauche;
 	public static bool J1_Droit;
@@ -40,9 +41,8 @@ public class Game_Inputs : MonoBehaviour {
 
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.Return)) {
-			Valider = true;
-		}
+		Valider = Input.GetButtonDown ("Submit");
+		Retour = Input.GetButtonDown ("Cancel");
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

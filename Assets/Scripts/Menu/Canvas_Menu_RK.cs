@@ -341,7 +341,7 @@ public class Canvas_Menu_RK : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Game_Inputs.J1_PouvoirSpe || Game_Inputs.J2_PouvoirSpe) {
+		if (Game_Inputs.Retour) {
 			Choose_Return();
 		}
 		if (!audCamera.isPlaying && audCamera.loop && hasMusic) {
