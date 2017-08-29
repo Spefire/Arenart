@@ -32,6 +32,7 @@ public class Canvas_Jeu_RK : MonoBehaviour {
 	void OnEnable () {
 		hasMusic = true;
 		isPaused = false;
+		isFinished = false;
 		Time.timeScale = 1.0f;
 		Cursor.visible = false;
 		panelPause.SetActive (false);

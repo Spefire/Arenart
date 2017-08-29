@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Game_Inputs : MonoBehaviour {
 
+	public static bool Valider;
+
 	public static bool J1_Gauche;
 	public static bool J1_Droit;
 	public static bool J1_Gauche_Pressed;
@@ -37,6 +39,10 @@ public class Game_Inputs : MonoBehaviour {
 	}
 
 	void Update () {
+
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			Valider = true;
+		}
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
