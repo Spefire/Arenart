@@ -86,7 +86,7 @@ public class Perso_Pouv02_RK: MonoBehaviour {
 	private void Action_Pouvoir_Eau(){
 		Vector3 objPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 		GameObject instantiatedProjectile = (GameObject)Instantiate (FouetEau, objPos, FouetEau.transform.rotation);
-		instantiatedProjectile.GetComponent<Objet_Suivi> ().SetConfig (first, body.turned, true);
+		instantiatedProjectile.GetComponent<Objet_Fouet> ().SetConfig (first, body.turned);
 	}
 
 	//PrisonEau
