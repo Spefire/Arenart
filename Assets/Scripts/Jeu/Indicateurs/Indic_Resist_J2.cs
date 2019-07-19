@@ -15,7 +15,6 @@ public class Indic_Resist_J2 : MonoBehaviour {
 	private SpriteRenderer render;
 
 	void Start () {
-		J2 = GameObject.FindGameObjectWithTag ("J2");
 		render = GetComponent<SpriteRenderer>();
 		resist = false;
 		moins = false;
@@ -23,8 +22,7 @@ public class Indic_Resist_J2 : MonoBehaviour {
 	}
 
 	void Update () {
-		transform.position = new Vector3 (J2.transform.position.x, J2.transform.position.y, J2.transform.position.z - 1);
-		if (resist) {
+		if (SearchPlayer() && resist) {
 			double time_cours = (double)Time.time - time_resist;
 			if (time_cours >= tmp_resist) {
 				resist = false;
@@ -37,6 +35,16 @@ public class Indic_Resist_J2 : MonoBehaviour {
 				render.sprite = texture_resist_plus;
 			}
 		}
+	}
+
+	private bool SearchPlayer() {
+		if (this.J2 != null) return true;
+		this.J2 = GameObject.FindGameObjectWithTag ("J2");
+		if (this.J2 != null) {
+			this.transform.position = new Vector3 (J2.transform.position.x, J2.transform.position.y, J2.transform.position.z - 1);
+			this.transform.SetParent(this.J2.transform);
+		}
+		return false;
 	}
 
 	public static void Set_Resist_Moins(){

@@ -15,7 +15,6 @@ public class Indic_Vie_J1 : MonoBehaviour {
 	private SpriteRenderer render;
 
 	void Start () {
-		J1 = GameObject.FindGameObjectWithTag ("J1");
 		render = GetComponent<SpriteRenderer>();
 		vie = false;
 		moins = false;
@@ -23,8 +22,7 @@ public class Indic_Vie_J1 : MonoBehaviour {
 	}
 	
 	void Update () {
-		transform.position = new Vector3 (J1.transform.position.x, J1.transform.position.y, J1.transform.position.z - 1);
-		if (vie) {
+		if (SearchPlayer() && vie) {
 			double time_cours = (double)Time.time - time_vie;
 			if(time_cours >= tmp_vie){
 				vie = false;
@@ -37,6 +35,16 @@ public class Indic_Vie_J1 : MonoBehaviour {
 				render.sprite = texture_vie_plus;
 			}
 		}
+	}
+
+	private bool SearchPlayer() {
+		if (this.J1 != null) return true;
+		this.J1 = GameObject.FindGameObjectWithTag ("J1");
+		if (this.J1 != null) {
+			this.transform.position = new Vector3 (J1.transform.position.x, J1.transform.position.y, J1.transform.position.z - 1);
+			this.transform.SetParent(this.J1.transform);
+		}
+		return false;
 	}
 
 	public static void Set_Vie_Moins(){
