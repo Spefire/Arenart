@@ -46,7 +46,7 @@ public class Objet_Combo : MonoBehaviour {
 				aud.PlayOneShot (aud03_punch);
 				break;
 			case 6:
-				DestroyObject (this.gameObject);
+				Destroy (this.gameObject);
 				break;
 			}
 			time_Spirit = (double)Time.time;

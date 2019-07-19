@@ -45,7 +45,7 @@ public class Objet_Esprit: MonoBehaviour {
 			Perso_Body_RK body = enemy.GetComponent<Perso_Body_RK> ();
 			stats.SetDamage (stats.GetDamage (coeffDegats), resistance);
 			body.SetStunned (1f);
-			DestroyObject (this.gameObject);
+			Destroy (this.gameObject);
 		}
 	}
 
@@ -56,7 +56,7 @@ public class Objet_Esprit: MonoBehaviour {
 			Perso_Body_RK body = enemy.GetComponent<Perso_Body_RK> ();
 			stats.SetDamage (stats.GetDamage (coeffDegats), resistance);
 			body.SetStunned (1f);
-			DestroyObject (this.gameObject);
+			Destroy (this.gameObject);
 		}
 	}
 }

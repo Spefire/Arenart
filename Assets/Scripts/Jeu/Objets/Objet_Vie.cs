@@ -13,7 +13,7 @@ public class Objet_Vie : MonoBehaviour {
 	void Update () {
 		double time_cours = (double)Time.time - time_vie;
 		if(time_cours >= tmp_vie){
-			DestroyObject (this.gameObject);
+			Destroy (this.gameObject);
 		}
 	}
 }

@@ -22,7 +22,7 @@ public class Terrain_01 : MonoBehaviour {
 				transform.Translate (-Vector2.up * speed * Time.deltaTime);
 			}
 			else if (destruct) {
-				DestroyObject (this.gameObject);
+				Destroy (this.gameObject);
 			}
 		}
 	}

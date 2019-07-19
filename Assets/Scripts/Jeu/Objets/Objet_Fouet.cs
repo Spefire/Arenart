@@ -45,7 +45,7 @@ public class Objet_Fouet : MonoBehaviour {
 				enemy.GetComponent<Rigidbody>().AddForce (Vector3.up * 120, ForceMode.Impulse);
 				enemy.GetComponent<Rigidbody>().AddForce (Vector3.left * 30, ForceMode.Impulse);
 			}
-			DestroyObject (this.gameObject);
+			Destroy (this.gameObject);
 		}
 	}
 

@@ -60,7 +60,7 @@ public class Objet_Finn : MonoBehaviour {
 		if (objetInfo.gameObject == enemy) {
 			Perso_Stats_RK stats = enemy.GetComponent<Perso_Stats_RK> ();
 			stats.SetDamage (stats.GetDamage (coeffDegats), resistance);
-			DestroyObject (this.gameObject);
+			Destroy (this.gameObject);
 		}
 	}
 
@@ -68,7 +68,7 @@ public class Objet_Finn : MonoBehaviour {
 		if (objetInfo.gameObject == enemy) {
 			Perso_Stats_RK stats = enemy.GetComponent<Perso_Stats_RK> ();
 			stats.SetDamage (stats.GetDamage (coeffDegats), resistance);
-			DestroyObject (this.gameObject);
+			Destroy (this.gameObject);
 		}
 	}
 }
