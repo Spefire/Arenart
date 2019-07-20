@@ -14,7 +14,7 @@ public class Selection_Menu_RK : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Game_Inputs.J1_Bas && select_menu < 5) {
+		if (Game_Inputs.J1_Bas && select_menu < 4) {
 			select_menu++;
 			Affichage ();
 		}

@@ -7,6 +7,7 @@ public class Image_Menu_RK : MonoBehaviour {
 	
 	public Sprite[] textures;
 	public int index;
+	public float maxValue = 2.0f;
 	private float speed;
 	private bool isShowing;
 	private Color color;
@@ -23,7 +24,7 @@ public class Image_Menu_RK : MonoBehaviour {
 			color = img.color;
 			color.a += Time.deltaTime * speed;
 			img.color = color;
-			if (img.color.a >= 2.0f) {
+			if (img.color.a >= maxValue) {
 				isShowing = false;
 			}
 		} else {

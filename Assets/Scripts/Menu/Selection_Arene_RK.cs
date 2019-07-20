@@ -29,13 +29,13 @@ public class Selection_Arene_RK : MonoBehaviour {
 		aud.PlayOneShot (son_selection);
 		switch (select_arene) {
 		case 1:
-			textSelectArene.text = "Volcan Infernal";
+			textSelectArene.text = "Le Volcan de Célestia";
 			break;
 		case 2:
-			textSelectArene.text = "Colisée futuriste";
+			textSelectArene.text = "Le Colisée de Faradel";
 			break;
 		case 3:
-			textSelectArene.text = "Forêt Profonde";
+			textSelectArene.text = "La Forêt d'Alsos";
 			break;
 		}
 	}
