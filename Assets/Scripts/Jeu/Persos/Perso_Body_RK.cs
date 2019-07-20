@@ -9,7 +9,7 @@ public class Perso_Body_RK : MonoBehaviour {
 	public Sprite texture_saut_primaire;
 	public Sprite texture_saut_secondaire;
 
-	[HideInInspector]public int speed_mov = 15;
+	[HideInInspector]public int speed_mov = 20;
 	[HideInInspector]public int speed_jump = 100;
 	[HideInInspector]public int nb_saut = 2;
 	[HideInInspector]public bool jumped;
@@ -105,12 +105,14 @@ public class Perso_Body_RK : MonoBehaviour {
 					GetComponent<Rigidbody> ().velocity = Vector3.zero;
 					GetComponent<Rigidbody> ().angularVelocity = Vector3.zero; 
 					GetComponent<Rigidbody> ().AddForce (Vector3.up * speed_jump, ForceMode.Impulse);
+					GetComponent<Rigidbody> ().AddForce (Vector3.up * speed_jump / 2, ForceMode.Impulse);
 					nb_saut--;
 					Sauter();
 				}
 			} else if (((first && Game_Inputs.J1_Haut) || (!first && Game_Inputs.J2_Haut)) && nb_saut == 2) {
 				if (!Canvas_Jeu_RK.isPaused) {
-					GetComponent<Rigidbody> ().AddForce (Vector3.up * speed_jump * 1.25f, ForceMode.Impulse);
+					GetComponent<Rigidbody> ().AddForce (Vector3.up * speed_jump * 1.3f, ForceMode.Impulse);
+					GetComponent<Rigidbody> ().AddForce (Vector3.up * speed_jump * 1.3f / 2, ForceMode.Impulse);
 					nb_saut--;
 					Sauter();
 				}
