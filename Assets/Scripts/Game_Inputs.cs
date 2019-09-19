@@ -45,20 +45,20 @@ public class Game_Inputs : MonoBehaviour {
 		Retour = Input.GetButtonDown ("Cancel");
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		if (J1_Refresh_Horizontal != 1 && (Input.GetAxisRaw ("J1_Keyboard_Horizontal") == 1)) {
+		
+		if (J1_Refresh_Horizontal != 1 && (Input.GetAxisRaw ("J1_Keyboard_Horizontal") > 0.5)) {
 			J1_Refresh_Horizontal = 1;
 			J1_Gauche = false;
 			J1_Droit = true;
 			J1_Gauche_Pressed = false;
 			J1_Droit_Pressed = true;
-		} else if (J1_Refresh_Horizontal != -1 && (Input.GetAxisRaw ("J1_Keyboard_Horizontal") == -1)) {
+		} else if (J1_Refresh_Horizontal != -1 && (Input.GetAxisRaw ("J1_Keyboard_Horizontal") < -0.5)) {
 			J1_Refresh_Horizontal = -1;
 			J1_Gauche = true;
 			J1_Droit = false;
 			J1_Gauche_Pressed = true;
 			J1_Droit_Pressed = false;
-		} else if (Input.GetAxisRaw ("J1_Keyboard_Horizontal") == 0) {
+		} else if (-0.5 < Input.GetAxisRaw ("J1_Keyboard_Horizontal") && Input.GetAxisRaw ("J1_Keyboard_Horizontal") < 0.5) {
 			J1_Refresh_Horizontal = 0;
 			J1_Gauche = false;
 			J1_Droit = false;
@@ -69,15 +69,15 @@ public class Game_Inputs : MonoBehaviour {
 			J1_Droit = false;
 		}
 
-		if (J1_Refresh_Vertical != 1 && (Input.GetAxisRaw ("J1_Keyboard_Vertical") == 1)) {
+		if (J1_Refresh_Vertical != 1 && (Input.GetAxisRaw ("J1_Keyboard_Vertical") > 0.5)) {
 			J1_Refresh_Vertical = 1;
 			J1_Bas = false;
 			J1_Haut = true;
-		} else if (J1_Refresh_Vertical != -1 && (Input.GetAxisRaw ("J1_Keyboard_Vertical") == -1)) {
+		} else if (J1_Refresh_Vertical != -1 && (Input.GetAxisRaw ("J1_Keyboard_Vertical") < -0.5)) {
 			J1_Refresh_Vertical = -1;
 			J1_Bas = true;
 			J1_Haut = false;
-		} else if (Input.GetAxisRaw ("J1_Keyboard_Vertical") == 0) {
+		} else if (-0.5 < Input.GetAxisRaw ("J1_Keyboard_Vertical") && Input.GetAxisRaw ("J1_Keyboard_Vertical") < 0.5) {
 			J1_Refresh_Vertical = 0;
 			J1_Bas = false;
 			J1_Haut = false;
@@ -92,19 +92,19 @@ public class Game_Inputs : MonoBehaviour {
 
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		if (J2_Refresh_Horizontal != 1 && (Input.GetAxisRaw ("J2_Keyboard_Horizontal") == 1)) {
+		if (J2_Refresh_Horizontal != 1 && (Input.GetAxisRaw ("J2_Keyboard_Horizontal") > 0.5)) {
 			J2_Refresh_Horizontal = 1;
 			J2_Gauche = false;
 			J2_Droit = true;
 			J2_Gauche_Pressed = false;
 			J2_Droit_Pressed = true;
-		} else if (J2_Refresh_Horizontal != -1 && (Input.GetAxisRaw ("J2_Keyboard_Horizontal") == -1)) {
+		} else if (J2_Refresh_Horizontal != -1 && (Input.GetAxisRaw ("J2_Keyboard_Horizontal") < -0.5)) {
 			J2_Refresh_Horizontal = -1;
 			J2_Gauche = true;
 			J2_Droit = false;
 			J2_Gauche_Pressed = true;
 			J2_Droit_Pressed = false;
-		} else if (Input.GetAxisRaw ("J2_Keyboard_Horizontal") == 0) {
+		} else if (-0.5 < Input.GetAxisRaw ("J2_Keyboard_Horizontal") && Input.GetAxisRaw ("J2_Keyboard_Horizontal") < 0.5) {
 			J2_Refresh_Horizontal = 0;
 			J2_Gauche = false;
 			J2_Droit = false;
@@ -115,15 +115,15 @@ public class Game_Inputs : MonoBehaviour {
 			J2_Droit = false;
 		}
 
-		if (J2_Refresh_Vertical != 1 && (Input.GetAxisRaw ("J2_Keyboard_Vertical") == 1)) {
+		if (J2_Refresh_Vertical != 1 && (Input.GetAxisRaw ("J2_Keyboard_Vertical") > 0.5)) {
 			J2_Refresh_Vertical = 1;
 			J2_Bas = false;
 			J2_Haut = true;
-		} else if (J2_Refresh_Vertical != -1 && (Input.GetAxisRaw ("J2_Keyboard_Vertical") == -1)) {
+		} else if (J2_Refresh_Vertical != -1 && (Input.GetAxisRaw ("J2_Keyboard_Vertical") < -0.5)) {
 			J2_Refresh_Vertical = -1;
 			J2_Bas = true;
 			J2_Haut = false;
-		} else if (Input.GetAxisRaw ("J2_Keyboard_Vertical") == 0) {
+		} else if (-0.5 < Input.GetAxisRaw ("J2_Keyboard_Vertical") && Input.GetAxisRaw ("J2_Keyboard_Vertical") < 0.5) {
 			J2_Refresh_Vertical = 0;
 			J2_Bas = false;
 			J2_Haut = false;
